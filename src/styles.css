@@ -1,7 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
 body {
   margin: 0;
   font-family: Inter, sans-serif;
   background: #131313;
   color: #e5e2e1;
 }
+=======
+:root {
+  --background: #131313;
+  --surface: #1c1b1b;
+  --card: #20201f;
+  --primary: #e3c190;
+  --text: #e5e2e1;
+  --text-muted: #a8a29e;
+}
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+>>>>>>> 86f023a76ff488390a398c9f923849d2f9312ec8
