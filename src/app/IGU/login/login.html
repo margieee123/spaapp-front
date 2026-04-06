@@ -1,0 +1,107 @@
+<div class="login-page">
+  <!-- Background -->
+  <div class="background-effects">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <main class="main-shell">
+    <!-- Brand -->
+    <div class="brand">
+      <div class="brand-icon">
+        <span class="material-symbols-outlined">spa</span>
+      </div>
+      <h1 class="brand-title">Spa App</h1>
+      <p class="brand-subtitle">Gestor integral del centro de bienestar</p>
+    </div>
+
+    <!-- Login Card -->
+    <div class="login-card">
+      <div class="top-border"></div>
+
+      <div class="card-content">
+        <div class="card-header">
+          <h2>Bienvenid&#64;</h2>
+          <p>Enter your credentials to access your private retreat.</p>
+        </div>
+
+        <form class="form" (ngSubmit)="onLogin()">
+
+          <!-- Mensaje de error -->
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+
+          <!-- Email -->
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="name@sanctuary.com"
+              [(ngModel)]="correo"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="input-group">
+            <div class="password-label">
+              <label for="password">Password</label>
+              <a href="#" class="forgot-link">Forgot Password?</a>
+            </div>
+            <div class="password-box">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="••••••••"
+                [(ngModel)]="password"
+                required
+              />
+              <button type="button" class="eye-btn">
+                <span class="material-symbols-outlined">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <button class="login-btn" type="submit" [disabled]="isLoading">
+            {{ isLoading ? 'Ingresando...' : 'Sign In to Sanctuary' }}
+          </button>
+
+        </form>
+
+        <!-- Footer -->
+        <div class="footer">
+          <p>
+            Not a member yet?
+            <a href="#">Create an Account</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="utility-links">
+      <div class="left-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <div class="status">
+        <span class="dot"></span>
+        <span>Sanctuary Status: Secure</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating decoration -->
+  <div class="floating-box">
+    <div class="floating-card">
+      <span class="material-symbols-outlined">water_drop</span>
+    </div>
+  </div>
+</div>
