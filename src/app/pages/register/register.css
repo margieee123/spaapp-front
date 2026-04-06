@@ -1,0 +1,121 @@
+/* CONTENEDOR GENERAL */
+.container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HERO */
+.hero {
+  width: 50%;
+  background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXuLg7UqujuTLc0bM51n0P2ghdyrhtoFdFr1tAQW5QGyH-AmC1LEqvRIiyRfrKQwAp_OLPZHpweZImxr8ZVLnzhZdR8naOcUytwn58j5u1zcHK7Nw7RUyhgYQkzOwGf3K5zFMpL6F42ojtekTjnIETZLrswjU3KcZc-BkN-W4hzUl1C39Pe6ik_BLSwjh2dL5_v32uaa6CXA4LmyzdfsfNoX5ffJ70rAyBKNS-cPTd6jknipu4aw5tlniJ1SNS3PzneDrzdcl9-zc');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  color: #ffffff;
+}
+
+.overlay h1 {
+  font-size: 32px;
+}
+
+.overlay span {
+  color: #c9a86a;
+}
+
+.overlay p {
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* FORMULARIO */
+.form-container {
+  width: 50%;
+  background-color: #131313;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+/* LOGO */
+.logo h2 {
+  color: #c9a86a;
+  letter-spacing: 3px;
+}
+
+/* HEADER */
+.header h3 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.header p {
+  color: #aaa;
+}
+
+/* INPUTS */
+.input-group {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #bbb;
+}
+
+.input-group input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #555;
+  padding: 10px 0;
+  color: white;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-bottom: 1px solid #c9a86a;
+}
+
+/* GRID PASSWORD */
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+/* BOTÓN */
+.btn {
+  margin-top: 30px;
+  background: linear-gradient(45deg, #c9a86a, #a67c52);
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* LOGIN LINK */
+.login-link {
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #c9a86a;
+  text-decoration: none;
+}

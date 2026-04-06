@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #1c1b1b;
+  color: white;
+}
+
+.navbar h1 {
+  color: #c9a86a;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #aaa;
+}
+
+nav .active {
+  color: #c9a86a;
+  border-bottom: 2px solid #c9a86a;
+}
+
+.user {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.user img {
+  border-radius: 50%;
+}
