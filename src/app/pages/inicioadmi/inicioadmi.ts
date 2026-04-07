@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
- 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-inicioadmi',
   standalone: true,
@@ -8,8 +9,21 @@ import { CommonModule } from '@angular/common';
   templateUrl: './inicioadmi.html',
   styleUrls: ['./inicioadmi.css']
 })
-export class InicioAdmi {   // ← nombre exacto que usa app.routes.ts
- 
+export class InicioAdmi implements OnInit {
+
+  nombre: string = '';
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.nombre = localStorage.getItem('nombre') || 'Administrador';
+  }
+
+  cerrarSesion() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
   kpiCards = [
     {
       label: 'INGRESOS TOTALES',
@@ -36,7 +50,7 @@ export class InicioAdmi {   // ← nombre exacto que usa app.routes.ts
       icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`
     }
   ];
- 
+
   barData = [
     { height: 45, highlight: false },
     { height: 60, highlight: false },
@@ -46,7 +60,7 @@ export class InicioAdmi {   // ← nombre exacto que usa app.routes.ts
     { height: 85, highlight: true  },
     { height: 65, highlight: false }
   ];
- 
+
   profesionales = [
     {
       nombre: 'Marcus Chen',
@@ -73,7 +87,7 @@ export class InicioAdmi {   // ← nombre exacto que usa app.routes.ts
       avatar: 'https://i.pravatar.cc/40?img=33'
     }
   ];
- 
+
   servicios = [
     { nombre: 'Masaje con Piedras Obsidianas', descripcion: 'Terapia térmica de tejido profundo', precio: '$180', tiempo: '90MIN' },
     { nombre: 'Facial de Polvo de Oro',         descripcion: 'Rejuvenecimiento de lujo 24k',       precio: '$240', tiempo: '60MIN' },

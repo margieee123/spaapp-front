@@ -1,1 +1,204 @@
-<p>iniciorecep works!</p>
+<div class="recep-dashboard">
+
+  <header class="top-nav">
+    <div class="nav-left">
+      <span class="brand-logo">Sensory Sanctuary</span>
+      <span class="role-badge">Recepción</span>
+      <nav class="main-nav">
+        <a class="nav-link active" href="#">Inicio</a>
+        <a class="nav-link" href="#">Nueva Reserva</a>
+        <a class="nav-link" href="#">Clientes</a>
+        <a class="nav-link" href="#">Agenda</a>
+        <a class="nav-link" href="#">Check-in</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn"><span class="material-symbols-outlined">notifications</span></button>
+      <button class="icon-btn"><span class="material-symbols-outlined">person</span></button>
+      <button class="btn-cerrar-sesion" (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="bg-shape"></div>
+
+    <div class="welcome-section">
+      <span class="eyebrow">{{ fechaHoy }} · {{ horaActual }}</span>
+      <h2 class="welcome-title">Panel de <em>Recepción</em> · {{ nombre }}</h2>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <button class="action-btn primary">
+        <span class="material-symbols-outlined">add_circle</span>
+        Nueva Reserva
+      </button>
+      <button class="action-btn">
+        <span class="material-symbols-outlined">person_add</span>
+        Nuevo Cliente
+      </button>
+      <button class="action-btn">
+        <span class="material-symbols-outlined">login</span>
+        Check-in Rápido
+      </button>
+      <button class="action-btn">
+        <span class="material-symbols-outlined">receipt_long</span>
+        Cobrar Servicio
+      </button>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+
+      <!-- Check-in panel -->
+      <div class="card checkin-card">
+        <div class="card-header">
+          <h3 class="card-title">Citas de Hoy</h3>
+          <div class="header-tabs">
+            <button class="tab active">Todas</button>
+            <button class="tab">Pendientes</button>
+            <button class="tab">Check-in</button>
+          </div>
+        </div>
+
+        <div class="checkin-list">
+          <div class="checkin-item done">
+            <div class="ci-time">09:00</div>
+            <div class="ci-info">
+              <p class="ci-client">Sofía Martínez</p>
+              <p class="ci-detail">Masaje Sueco · Elena V. · Sala 2</p>
+            </div>
+            <div class="ci-status-wrap">
+              <span class="ci-status checked"><span class="material-symbols-outlined">check_circle</span> Check-in</span>
+            </div>
+          </div>
+
+          <div class="checkin-item current">
+            <div class="ci-time accent">10:30</div>
+            <div class="ci-info">
+              <p class="ci-client">Valentina Ríos</p>
+              <p class="ci-detail">Facial Luminosidad · Ana K. · Sala 1</p>
+            </div>
+            <div class="ci-status-wrap">
+              <button class="ci-btn">Hacer Check-in</button>
+            </div>
+          </div>
+
+          <div class="checkin-item">
+            <div class="ci-time">12:00</div>
+            <div class="ci-info">
+              <p class="ci-client">Laura Gómez</p>
+              <p class="ci-detail">Aromaterapia · Elena V. · Sala 2</p>
+            </div>
+            <div class="ci-status-wrap">
+              <span class="ci-status pending"><span class="material-symbols-outlined">schedule</span> Esperando</span>
+            </div>
+          </div>
+
+          <div class="checkin-item">
+            <div class="ci-time">02:00</div>
+            <div class="ci-info">
+              <p class="ci-client">Julianna Torres</p>
+              <p class="ci-detail">Tejido Profundo · Elena V. · Sala 2</p>
+            </div>
+            <div class="ci-status-wrap">
+              <span class="ci-status pending"><span class="material-symbols-outlined">schedule</span> Esperando</span>
+            </div>
+          </div>
+
+          <div class="checkin-item cancelled">
+            <div class="ci-time muted">04:00</div>
+            <div class="ci-info">
+              <p class="ci-client muted">Camila Herrera</p>
+              <p class="ci-detail">Masaje Volcánico · Ana K.</p>
+            </div>
+            <div class="ci-status-wrap">
+              <span class="ci-status cancelled"><span class="material-symbols-outlined">cancel</span> Cancelado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Col -->
+      <div class="right-col">
+
+        <!-- Search client -->
+        <div class="card search-card">
+          <h3 class="card-title">Buscar Cliente</h3>
+          <div class="search-box">
+            <span class="material-symbols-outlined search-ic">search</span>
+            <input class="search-input" type="text" placeholder="Nombre, teléfono o correo…" [(ngModel)]="busquedaCliente"/>
+          </div>
+          <div class="search-result">
+            <div class="result-avatar">JT</div>
+            <div class="result-info">
+              <p class="result-name">Julianna Torres</p>
+              <p class="result-meta">8 visitas · Última: 12 Sep</p>
+            </div>
+            <button class="result-btn">Ver perfil</button>
+          </div>
+        </div>
+
+        <!-- Estado salas -->
+        <div class="card rooms-card">
+          <h3 class="card-title">Estado de Salas</h3>
+          <div class="rooms-grid">
+            <div class="room-item occupied">
+              <div class="room-indicator"></div>
+              <div class="room-info">
+                <p class="room-name">Sala 1</p>
+                <p class="room-detail">Masaje Sueco · hasta 10:00</p>
+              </div>
+              <span class="room-status">Ocupada</span>
+            </div>
+            <div class="room-item free">
+              <div class="room-indicator"></div>
+              <div class="room-info">
+                <p class="room-name">Sala 2</p>
+                <p class="room-detail">Disponible</p>
+              </div>
+              <span class="room-status free-lbl">Libre</span>
+            </div>
+            <div class="room-item occupied">
+              <div class="room-indicator"></div>
+              <div class="room-info">
+                <p class="room-name">Sala 3</p>
+                <p class="room-detail">Aromaterapia · hasta 11:15</p>
+              </div>
+              <span class="room-status">Ocupada</span>
+            </div>
+            <div class="room-item free">
+              <div class="room-indicator"></div>
+              <div class="room-info">
+                <p class="room-name">Sala 4</p>
+                <p class="room-detail">Disponible</p>
+              </div>
+              <span class="room-status free-lbl">Libre</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caja del día -->
+        <div class="card cash-card">
+          <h3 class="card-title">Caja del Día</h3>
+          <div class="cash-total">
+            <span class="cash-label">Total Cobrado</span>
+            <span class="cash-amount">$485.00</span>
+          </div>
+          <div class="cash-breakdown">
+            <div class="cash-row">
+              <span>Efectivo</span><span>$185.00</span>
+            </div>
+            <div class="cash-row">
+              <span>Tarjeta</span><span>$300.00</span>
+            </div>
+            <div class="cash-row pending-row">
+              <span>Pendiente</span><span>$145.00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>

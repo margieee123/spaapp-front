@@ -30,9 +30,8 @@
         <form class="form" (ngSubmit)="onLogin()">
 
           <!-- Mensaje de error -->
-          <div *ngIf="errorMessage" class="error-message">
-            {{ errorMessage }}
-          </div>
+          <app-alert [mensaje]="errorMessage" tipo="error"></app-alert>
+          <p style="color:red">{{ errorMessage }}</p>
 
           <!-- Email -->
           <div class="input-group">
@@ -79,7 +78,7 @@
         <div class="footer">
           <p>
             Not a member yet?
-            <a href="#">Create an Account</a>
+            <a routerLink="/registro" style="cursor: pointer;">Create an Account</a>
           </p>
         </div>
       </div>

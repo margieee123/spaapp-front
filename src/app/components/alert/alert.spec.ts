@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecepDash } from './recep-dash';
+import { Alert } from './alert';
 
-describe('RecepDash', () => {
-  let component: RecepDash;
-  let fixture: ComponentFixture<RecepDash>;
+describe('Alert', () => {
+  let component: Alert;
+  let fixture: ComponentFixture<Alert>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RecepDash],
+      imports: [Alert],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RecepDash);
+    fixture = TestBed.createComponent(Alert);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

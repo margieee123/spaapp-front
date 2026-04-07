@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AlertComponent } from '../../components/alert/alert';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink, AlertComponent],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -23,6 +24,8 @@ export class Login {
   constructor(private http: HttpClient, private router: Router) {}
 
   onLogin() {
+     console.log('onLogin ejecutado');
+
     this.errorMessage = '';
 
     if (!this.correo || !this.password) {
@@ -46,9 +49,24 @@ export class Login {
       },
       error: (err) => {
         this.isLoading = false;
-        this.errorMessage = err.error?.error || 'Correo o contraseña incorrectos.';
+        console.log('err completo:', err);
+        console.log('err.error:', err.error);
+        this.errorMessage = this.parsearError(err);
+        console.log('errorMessage:', this.errorMessage);
       }
     });
+  }
+
+  private parsearError(err: any): string {
+    if (!err.error) return 'Error al iniciar sesión.';
+
+    if (typeof err.error === 'string') return err.error;
+    if (err.error.error) return err.error.error;
+
+    const mensajes = Object.values(err.error) as string[];
+    if (mensajes.length > 0) return mensajes.join(' ');
+
+    return 'Error al iniciar sesión.';
   }
 
   private redirigirSegunRol(rol: string) {
